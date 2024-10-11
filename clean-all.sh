@@ -1,7 +1,7 @@
 #docker image rm -f mariadb nginx object-3d-editor-backend
 docker container stop nginx_web
 docker container stop backend_flask
-docker container stop mysql-db
+docker container stop mysql-db8
 docker container stop mysql-db
 
 docker compose down --volumes

@@ -17,13 +17,19 @@ RUN rm -rf /app/package.json
 RUN rm -rf /app/package-lock.json
 
 #COPY modified App.js
+WORKDIR /app/client-app
 COPY client-app/src/App.js /app/client-app/src/App.js
+COPY package.json /app/client-app/package.json
+RUN npm i -g npm-check-updates
+RUN npx ncu
+RUN npm install
+
 
 # ENV CI=true
 # ENV PORT=3000
 EXPOSE 3000
 
-WORKDIR /app/client-app
+
 CMD [ "npm", "run", "start" ]
 
 #CMD cd /server && npm run start
